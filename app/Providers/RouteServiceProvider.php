@@ -38,6 +38,8 @@ class RouteServiceProvider extends ServiceProvider
         $router->model('articles', 'App\Article');
 
         $router->model('profile', 'App\User');
+
+        $router->model('projects', 'App\Project');
         // watch out, sometimes we'r not only using the wildcard $id (find($id)
         // we can use 'where' etc, so it's good for small things, use binding for others (use function on top)
     }

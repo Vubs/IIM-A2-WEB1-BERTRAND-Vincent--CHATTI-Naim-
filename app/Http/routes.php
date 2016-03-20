@@ -33,13 +33,18 @@ Route::get('/contact', function(){
 });
 
 
-
-
 Route::group(['middleware' => 'web'], function () {
 
     Route::auth();
 
+
+
+    /* --- ARTICLES ROUTES --- */
+
     Route::resource('articles', 'ArticlesController');
+
+    /* --- PROJECT ROUTES --- */
+    Route::resource('projects', 'ProjectsController');
 
     Route::get('foo', ['middleware' => [ 'auth', 'manager' ], function(){
         return "this page may only be viewed by manager";
@@ -49,6 +54,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
+
+    /* --- PROFILE ROUTES */
 
     Route::get('profile', 'UsersController@index');
 
@@ -60,5 +67,5 @@ Route::group(['middleware' => 'web'], function () {
 
 
 
-//    Route::get('/home', 'HomeController@index');
+
 });

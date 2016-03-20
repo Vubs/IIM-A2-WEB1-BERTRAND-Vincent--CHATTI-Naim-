@@ -34,6 +34,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Article');
     }
 
+    public function projects(){
+        return $this->$this->hasMany('App\Project');
+    }
+
     public function isATeamManager(){
         return true;
     }
