@@ -44,6 +44,8 @@ Route::get('/contact', function(){
 
 Route::group(['middleware' => ['web']], function () {
 
+    //Route::get('profile')
+
 
     Route::resource('articles', 'ArticlesController');
 
@@ -63,6 +65,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
         return view('welcome');
     });
+
+    Route::get('profile', 'UsersController@index');
 
 //    Route::get('/home', 'HomeController@index');
 });
