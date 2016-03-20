@@ -1,6 +1,7 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
+    <div class="container">
 
     <h1>Articles</h1>
 
@@ -11,6 +12,8 @@
             <h2>
 
                 <a href="{{ action('ArticlesController@show', [$article->id]) }}">{{ $article->title }}</a>
+                <a href="{{ action('ArticlesController@edit', [$article->id]) }}">Edit</a>
+
             </h2>
 
 
@@ -25,5 +28,7 @@
 
         </article>
     @endforeach
+
+    </div>
 
 @stop

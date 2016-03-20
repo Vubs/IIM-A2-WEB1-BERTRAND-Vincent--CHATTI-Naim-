@@ -14,10 +14,15 @@
                             <li>Name: {{ $userInfos->name }}</li>
                             <li>Email {{ $userInfos->email }}</li>
                         </ul>
-                        
+
                         <div class="col-md-8 col-md-offset-2 text-center">
-                            <div class="col-md-6">Change Name</div>
-                            <div class="col-md-6">Change Password</div>
+                            <div class="col-md-6">
+                                <a href="{{ action('UsersController@editName') }}">Change name</a>
+
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{ action('UsersController@editPassword') }}">Change password</a>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -26,26 +26,18 @@
 */
 
 
-Route::get('/hello', function(){
-    return 'Hello boyyyyz';
-});
-
-
 
 // Contact Page
 Route::get('/contact', function(){
-   return 'Here will be my contact page' ;
+   return view('contact') ;
 });
 
 
 
 
+Route::group(['middleware' => 'web'], function () {
 
-
-Route::group(['middleware' => ['web']], function () {
-
-    //Route::get('profile')
-
+    Route::auth();
 
     Route::resource('articles', 'ArticlesController');
 
@@ -54,19 +46,19 @@ Route::group(['middleware' => ['web']], function () {
     }]);
 
 
-});
-
-
-
-
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
     Route::get('/', function () {
         return view('welcome');
     });
 
     Route::get('profile', 'UsersController@index');
+
+    Route::get('profile/editName', 'UsersController@editName');
+    Route::get('profile/editPassword', 'UsersController@editPassword');
+
+    Route::patch('profile/updateName', 'UsersController@updateName');
+    Route::patch('profile/updatePassword', 'UsersController@updatePassword');
+
+
 
 //    Route::get('/home', 'HomeController@index');
 });
